@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Hongo de Mario - HTML Canvas</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: rgb(240, 240, 240);
+        }
+        canvas {
+            background-color: rgb(255, 255, 255);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+<canvas id="miCanvas" width="500" height="500"></canvas>
+
+<script>
+    const canvas = document.getElementById("miCanvas");
+    const ctx = canvas.getContext("2d");
+
+    // Configuración general de bordes
+    ctx.lineWidth = 14;
+    ctx.lineCap = "round";
+    ctx.lineJoin = "round";
+    ctx.strokeStyle = "rgb(0, 0, 0)"; // Borde negro grueso
+
+    // Función auxiliar para trazar la curva del sombrero
+    function trazarSombrero() {
+        ctx.beginPath();
+        ctx.moveTo(60, 280);
+        // Cúpula más alta e inflada hacia arriba
+        ctx.bezierCurveTo(20, -10, 480, -10, 440, 280);
+        // Base curva del sombrero
+        ctx.bezierCurveTo(340, 380, 160, 380, 60, 280);
+        ctx.closePath();
+    }
+
+    // ==========================================
+    // 1. CABEZA ROJA (SOMBRERO ALTO)
+    // ==========================================
+    ctx.fillStyle = "rgb(180, 25, 6)"; // Rojo oscuro de Mario
+    trazarSombrero();
+    ctx.fill();
+    ctx.stroke();
+
+    // ==========================================
+    // 2. MANCHAS BLANCAS
+    // ==========================================
+    ctx.save();
+    trazarSombrero();
+    ctx.clip(); // Máscara para que las manchas no se salgan
+
+    ctx.fillStyle = "rgb(255, 255, 255)";
+
+    // Mancha central (Círculo grande arriba)
+    ctx.beginPath();
+    ctx.arc(250, 150, 95, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Mancha izquierda
+    ctx.beginPath();
+    ctx.ellipse(40, 200, 60, 90, -0.2, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Mancha derecha
+    ctx.beginPath();
+    ctx.ellipse(460, 200, 60, 90, 0.2, 0, Math.PI * 2);
+    ctx.fill();
+
+    ctx.restore();
+
+    // Repasar el borde negro del sombrero
+    trazarSombrero();
+    ctx.stroke();
+
+    // ==========================================
+    // 3. CARA / BASE (PIEL)
+    // ==========================================
+    ctx.fillStyle = "rgb(255, 222, 185)"; // Tono piel suave
+
+    ctx.beginPath();
+    ctx.moveTo(125, 305);
+    // Parte superior de la cara (arco que entra al sombrero)
+    ctx.bezierCurveTo(200, 280, 300, 280, 375, 305);
+    // Base inferior redondeada de la cara
+    ctx.bezierCurveTo(400, 460, 360, 480, 250, 480);
+    ctx.bezierCurveTo(140, 480, 100, 460, 125, 305);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+
+    // ==========================================
+    // 4. OJOS (CÁPSULAS NEGRAS)
+    // ==========================================
+    ctx.fillStyle = "rgb(0, 0, 0)";
+
+    // Ojo Izquierdo
+    ctx.beginPath();
+    ctx.ellipse(205, 385, 12, 36, 0, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Ojo Derecho
+    ctx.beginPath();
+    ctx.ellipse(295, 385, 12, 36, 0, 0, Math.PI * 2);
+    ctx.fill();
+
+</script>
+
+</body>
+</html>
