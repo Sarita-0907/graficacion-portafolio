@@ -1,80 +1,417 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Graficación | ISC</title>
+
     <link rel="stylesheet" href="./CSS/style.css">
+
+    <script>
+        (() => {
+            const temaInicial = localStorage.getItem("tema");
+
+            if (temaInicial === "light" || temaInicial === "dark") {
+                document.documentElement.setAttribute("data-theme", temaInicial);
+            } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+                document.documentElement.setAttribute("data-theme", "dark");
+            } else {
+                document.documentElement.setAttribute("data-theme", "light");
+            }
+        })();
+    </script>
 </head>
+
 <body>
 
     <header>
-        <h1>Portafolio web de Prácticas - Graficación</h1>
-        <p><strong>Alumno:</strong> Milca Sarahí Ek Cauich | <strong>Matrícula:</strong> 251K0022</p>
-        <p>Ingeniería en Sistemas Computacionales - 3er Semestre</p>
+
+        <div class="encabezado-contenido">
+
+            <h1>Portafolio web de Prácticas - Graficación</h1>
+
+            <p>
+                <strong>Alumno:</strong> Milca Sarahí Ek Cauich |
+                <strong>Matrícula:</strong> 251K0022
+            </p>
+
+            <p>
+                Ingeniería en Sistemas Computacionales - 3er Semestre
+            </p>
+
+        </div>
+
+        <div class="control-tema">
+
+            <label
+                for="themeToggle"
+                class="themeToggle st-sunMoonThemeToggleBtn"
+                title="Cambiar tema"
+                aria-label="Cambiar entre tema claro y oscuro">
+
+                <input
+                    type="checkbox"
+                    id="themeToggle"
+                    class="themeToggleInput">
+
+                <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    stroke="none">
+
+                    <mask id="moon-mask">
+                        <rect
+                            x="0"
+                            y="0"
+                            width="20"
+                            height="20"
+                            fill="white">
+                        </rect>
+
+                        <circle
+                            cx="11"
+                            cy="3"
+                            r="8"
+                            fill="black">
+                        </circle>
+                    </mask>
+
+                    <circle
+                        class="sunMoon"
+                        cx="10"
+                        cy="10"
+                        r="8"
+                        mask="url(#moon-mask)">
+                    </circle>
+
+                    <g>
+                        <circle class="sunRay sunRay1" cx="18" cy="10" r="1.5"></circle>
+                        <circle class="sunRay sunRay2" cx="14" cy="16.928" r="1.5"></circle>
+                        <circle class="sunRay sunRay3" cx="6" cy="16.928" r="1.5"></circle>
+                        <circle class="sunRay sunRay4" cx="2" cy="10" r="1.5"></circle>
+                        <circle class="sunRay sunRay5" cx="6" cy="3.1718" r="1.5"></circle>
+                        <circle class="sunRay sunRay6" cx="14" cy="3.1718" r="1.5"></circle>
+                    </g>
+
+                </svg>
+
+            </label>
+
+        </div>
+
     </header>
 
     <main>
+
         <section class="unidad-seccion">
+
             <h2>Unidad 1: Introducción a los ambientes de graficación</h2>
+
             <div class="grid-actividades">
-                
+
                 <div class="tarjeta-actividad">
+
                     <h3>Actividad 1.1: Primitivas</h3>
-                    <p>Se utilizó p5.js para crear un personaje con figuras geométricas básicas. También se aplicaron colores, bordes y coordenadas para organizar las formas dentro del lienzo.</p>
-                    <a href="https://editor.p5js.org/Sarita-0907/full/cuAJ9uRTM" target="_blank" class="btn-enlace">Ver Proyecto 2D</a>
-                    <a href="https://editor.p5js.org/Sarita-0907/full/-8VUGWP4m" target="_blank" class="btn-enlace"> Ver repaso</a>
+
+                    <p>
+                        Se utilizó p5.js para crear un personaje con figuras geométricas básicas.
+                        También se aplicaron colores, bordes y coordenadas para organizar las
+                        formas dentro del lienzo.
+                    </p>
+
+                    <div class="acciones-actividad">
+
+                        <a
+                            href="https://editor.p5js.org/Sarita-0907/full/cuAJ9uRTM"
+                            target="_blank"
+                            class="btn-enlace">
+                            Ver Proyecto 2D
+                        </a>
+
+                        <a
+                            href="https://editor.p5js.org/Sarita-0907/full/-8VUGWP4m"
+                            target="_blank"
+                            class="btn-enlace">
+                            Ver repaso
+                        </a>
+
+                    </div>
+
                 </div>
 
                 <div class="tarjeta-actividad">
+
                     <h3>Actividad 1.2: Colores</h3>
-                    <p>Se modificaron colores, bordes y transparencias usando funciones como fill(), stroke() y strokeWeight(). También se observó cómo el orden del código afecta la apariencia final de las figuras.</p>
-                    <a href="https://editor.p5js.org/Sarita-0907/full/VXGY-ZKtX" target="_blank" class="btn-enlace">Ver Proyecto </a>
+
+                    <p>
+                        Se modificaron colores, bordes y transparencias usando funciones como
+                        fill(), stroke() y strokeWeight(). También se observó cómo el orden
+                        del código afecta la apariencia final de las figuras.
+                    </p>
+
+                    <div class="acciones-actividad">
+
+                        <a
+                            href="https://editor.p5js.org/Sarita-0907/full/VXGY-ZKtX"
+                            target="_blank"
+                            class="btn-enlace">
+                            Ver Proyecto
+                        </a>
+
+                    </div>
+
                 </div>
 
                 <div class="tarjeta-actividad">
+
                     <h3>Experimento: Proyección cónica y paralela</h3>
-                    <p>Se compararon la proyección cónica y paralela usando diferentes fuentes de luz y observando sus sombras.</p>
-                    <a href="https://padlet.com/251k0022/experimento-proyeccion-conica-y-paralela-s023hpqbzy0zvj54bjlq" target="_blank" class="btn-enlace">Ver Experimento </a>
+
+                    <p>
+                        Se compararon la proyección cónica y paralela usando diferentes
+                        fuentes de luz y observando sus sombras.
+                    </p>
+
+                    <div class="acciones-actividad">
+
+                        <a
+                            href="https://padlet.com/251k0022/experimento-proyeccion-conica-y-paralela-s023hpqbzy0zvj54bjlq"
+                            target="_blank"
+                            class="btn-enlace">
+                            Ver Experimento
+                        </a>
+
+                    </div>
+
                 </div>
 
                 <div class="tarjeta-actividad">
-                    <h3>Actividad 1.3:Arte digital</h3>
-                    <p>Se realizó una reinterpretación de la obra Los Girasoles (1888) de Vincent van Gogh mediante primitivas geométricas, utilizando diferentes colores y grosores para aproximarse a la composición y tonalidades de la obra original.</p>
-                    <a href="https://editor.p5js.org/Sarita-0907/full/14t1u0w0D" target="_blank" class="btn-enlace">Ver Proyecto</a>
+
+                    <h3>Actividad 1.3: Arte digital</h3>
+
+                    <p>
+                        Se realizó una reinterpretación de la obra Los Girasoles (1888)
+                        de Vincent van Gogh mediante primitivas geométricas, utilizando
+                        diferentes colores y grosores para aproximarse a la composición
+                        y tonalidades de la obra original.
+                    </p>
+
+                    <div class="acciones-actividad">
+
+                        <a
+                            href="https://editor.p5js.org/Sarita-0907/full/14t1u0w0D"
+                            target="_blank"
+                            class="btn-enlace">
+                            Ver Proyecto
+                        </a>
+
+                    </div>
+
                 </div>
 
-                <div class="tarjeta-actividad">
-                    <h3>Actividad 1.4:Evaluación práctica
-                    </h3>
-                    <p>Se realizó una comparación práctica entre p5.js, Processing, HTML5 Canvas y CSS mediante la creación de una misma figura, analizando su sintaxis, configuración, uso de primitivas, colores, contornos, posición y tamaño.</p>
-                    <a href="https://drive.google.com/file/d/1-wlY3J8R6_Zba5_Y8DPbfaGGeAFpY5G7/view?usp=drive_link" target="_blank" class="btn-enlace">Ver Documento</a>
-                    <a href="https://drive.google.com/drive/folders/1U9FAYGs0GX5To6i6uiLT_odjCcHdyUhY?usp=drive_link" target="_blank" class="btn-enlace">Ver Carpeta</a>
+                <div class="tarjeta-actividad actividad-destacada">
+
+                    <h3>Actividad 1.4: Evaluación práctica</h3>
+
+                    <p>
+                        Se realizó una comparación práctica entre p5.js, Processing,
+                        HTML5 Canvas y CSS mediante la creación de una misma figura,
+                        analizando su sintaxis, configuración, primitivas, colores,
+                        contornos, posición y tamaño.
+                    </p>
+
+                    <div class="acciones-actividad">
+
+                        <a
+                            href="https://drive.google.com/file/d/1-wlY3J8R6_Zba5_Y8DPbfaGGeAFpY5G7/view?usp=drive_link"
+                            target="_blank"
+                            class="btn-enlace">
+                            Ver Documento
+                        </a>
+
+                        <a
+                            href="https://drive.google.com/drive/folders/1U9FAYGs0GX5To6i6uiLT_odjCcHdyUhY?usp=drive_link"
+                            target="_blank"
+                            class="btn-enlace">
+                            Ver Carpeta en Drive
+                        </a>
+
+                    </div>
+
+                    <div class="proyectos-preview">
+
+                        <a
+                            href="./Unidad 1/AA_1.4_Evaluación_práctica/HTML 5 Canvas/index.html"
+                            target="_blank"
+                            class="preview-proyecto">
+
+                            <div class="preview-imagen">
+                                <img
+                                    src="./Imagenes/HTML5 CANVAS.png"
+                                    alt="Proyecto HTML5 Canvas">
+                            </div>
+
+                            <span>HTML5 Canvas</span>
+                            <small>Ver proyecto</small>
+
+                        </a>
+
+                        <a
+                            href="./Unidad 1/AA_1.4_Evaluación_práctica/CSS/index.html"
+                            target="_blank"
+                            class="preview-proyecto">
+
+                            <div class="preview-imagen">
+                                <img
+                                    src="./Imagenes/CSS.png"
+                                    alt="Proyecto CSS">
+                            </div>
+
+                            <span>CSS</span>
+                            <small>Ver proyecto</small>
+
+                        </a>
+
+                        <a
+                            href="./Unidad 1/AA_1.4_Evaluación_práctica/Processing/AA_1_4_Evaluacion_practica.pde"
+                            target="_blank"
+                            class="preview-proyecto">
+
+                            <div class="preview-imagen">
+                                <img
+                                    src="./Imagenes/PROCESSING.png"
+                                    alt="Proyecto Processing">
+                            </div>
+
+                            <span>Processing</span>
+                            <small>Ver código</small>
+
+                        </a>
+
+                    </div>
+
                 </div>
 
             </div>
+
         </section>
 
         <section class="unidad-seccion">
+
             <h2>Unidad 2: Graficación 2D</h2>
+
             <div class="grid-actividades">
-                
+
                 <div class="tarjeta-actividad">
+
                     <h3>Actividad 2.1: Traslación</h3>
-                    <p>Implementación de transformaciones lineales (traslación y rotación) aislando la matriz gráfica mediante push() y pop().</p>
-                    <a href="#" target="_blank" class="btn-enlace">Ver Proyecto</a>
+
+                    <p>
+                        Implementación de transformaciones lineales como traslación
+                        y rotación, aislando la matriz gráfica mediante push() y pop().
+                    </p>
+
+                    <div class="acciones-actividad">
+
+                        <a
+                            href="#"
+                            class="btn-enlace">
+                            Ver Proyecto
+                        </a>
+
+                    </div>
+
                 </div>
 
                 <div class="tarjeta-actividad">
-                    <h3>Actividad 2.2: Mini-Proyecto </h3>
-                    <p>Replica de un videojuego clásico aplicando Programación Orientada a Objetos, lógica de colisiones y vectores.</p>
-                    <a href="#" target="_blank" class="btn-enlace">Jugar Ahora</a>
+
+                    <h3>Actividad 2.2: Mini-Proyecto</h3>
+
+                    <p>
+                        Réplica de un videojuego clásico aplicando Programación
+                        Orientada a Objetos, lógica de colisiones y vectores.
+                    </p>
+
+                    <div class="acciones-actividad">
+
+                        <a
+                            href="#"
+                            class="btn-enlace">
+                            Jugar Ahora
+                        </a>
+
+                    </div>
+
                 </div>
 
             </div>
+
         </section>
 
-        </main>
+    </main>
+
+    <script>
+        const themeToggle = document.getElementById("themeToggle");
+
+        const sistemaOscuro = window.matchMedia(
+            "(prefers-color-scheme: dark)"
+        );
+
+        const temaGuardado = localStorage.getItem("tema");
+
+        function aplicarTema(tema) {
+            document.documentElement.setAttribute(
+                "data-theme",
+                tema
+            );
+
+            themeToggle.checked = tema === "dark";
+        }
+
+        if (temaGuardado) {
+            aplicarTema(temaGuardado);
+        } else {
+            aplicarTema(
+                sistemaOscuro.matches
+                    ? "dark"
+                    : "light"
+            );
+        }
+
+        themeToggle.addEventListener(
+            "change",
+            function () {
+                const nuevoTema =
+                    this.checked
+                        ? "dark"
+                        : "light";
+
+                localStorage.setItem(
+                    "tema",
+                    nuevoTema
+                );
+
+                aplicarTema(nuevoTema);
+            }
+        );
+
+        sistemaOscuro.addEventListener(
+            "change",
+            function (evento) {
+                if (!localStorage.getItem("tema")) {
+                    aplicarTema(
+                        evento.matches
+                            ? "dark"
+                            : "light"
+                    );
+                }
+            }
+        );
+    </script>
 
 </body>
+
 </html>
