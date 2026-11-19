@@ -44,10 +44,16 @@ const camara = new THREE.PerspectiveCamera(
 
     const textureLoader = new THREE.TextureLoader();
 
+    const texturaCubo = textureLoader.load(
+    'https://threejs.org/examples/textures/crate.gif'
+);
+
+
     const geometriaCubo = new THREE.BoxGeometry(1, 1, 1);
     const materialCubo = new THREE.MeshStandardMaterial({ 
         color: 0xF5DEB3, // Color  base, que se verá afectado por la textura
-        map: textureLoader.load('https://threejs.org/examples/textures/crate.jpg'), // Cargar textura del cubo
+        map: texturaCubo,
+        //map: textureLoader.load('https://threejs.org/examples/textures/hardwood2_diffuse.jpg'), // Cargar textura del cubo
         roughness: 0.7, // Controla la rugosidad de la superficie del cubo
         metalness: 0.1  // Controla el nivel de metalicidad del cubo
     });
